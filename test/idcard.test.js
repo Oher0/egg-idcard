@@ -53,7 +53,7 @@ describe('test/idcard.test.js', () => {
       .type('json')
       .expect(200);
     const ret = JSON.parse(json.text);
-    console.log(json.text);
+    // console.log(json.text);
     assert(json.status === 200);
     assert(ret.valid === true);
     assert(ret.birthday === '19900120');
@@ -62,6 +62,23 @@ describe('test/idcard.test.js', () => {
     assert(ret.area.district.name === '上城区');
     assert(ret.age === 29);
     assert(ret.gender === 'M');
+    return;
+  });
+
+  it('Random ID', async () => {
+    const json = await app.httpRequest()
+      .get('/rand')
+      .expect(200);
+    // console.log(json.text);
+    const info = await app.httpRequest()
+      .get('/info/' + json.text)
+      .type('json')
+      .expect(200);
+    const ret = JSON.parse(info.text);
+    // console.log(info.text);
+    assert(info.status === 200);
+    assert(ret.valid === true);
+    return;
   });
 
 });

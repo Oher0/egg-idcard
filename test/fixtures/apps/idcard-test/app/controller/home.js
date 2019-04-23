@@ -20,6 +20,12 @@ class HomeController extends Controller {
     const succ = app.idcard.info(idno);
     ctx.body = JSON.stringify(succ);
   }
+
+  async rand() {
+    const { app, ctx } = this;
+    const succ = app.idcard.random();
+    ctx.body = succ;
+  }
 }
 
 module.exports = HomeController;
