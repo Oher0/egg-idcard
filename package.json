@@ -1,6 +1,6 @@
 {
   "name": "egg-idcard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "idcard verify",
   "eggPlugin": {
     "name": "idcard"
